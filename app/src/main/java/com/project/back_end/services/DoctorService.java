@@ -13,7 +13,6 @@ public class DoctorService {
         doctorList.add(doctor);
         return doctor;
     }
-
     public List<Doctor> getAllDoctors() {
         if(doctorList.isEmpty()) {
             doctorList.add(new Doctor(1L, "Dr. Siddharth Navlakhe", "Cardiology", "siddharth.doc@smartclinic.com"));
