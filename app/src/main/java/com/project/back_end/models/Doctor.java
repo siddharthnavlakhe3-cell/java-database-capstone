@@ -8,16 +8,20 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     private String name;
     private String specialty;
     private String email;
 
     public Doctor() {}
-    public Doctor(String name, String specialty, String email) {
+    
+    public Doctor(Long id, String name, String specialty, String email) {
+        this.id = id;
         this.name = name;
         this.specialty = specialty;
         this.email = email;
     }
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getName() { return name; }
