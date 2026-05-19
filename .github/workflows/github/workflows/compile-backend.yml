@@ -1,0 +1,29 @@
+name: Compile Java Backend
+
+# 1. Trigger rules: Jab bhi main branch par code push hoga, yeh script chalegi
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 2: GitHub repo se saara code virtual machine me clone karna
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    # Step 3: Virtual machine me Java (JDK 17) install karna
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    # Step 4: Maven tool ka use karke Java project ko compile karna
+    - name: Compile Code with Maven
+      run: mvn clean compile
