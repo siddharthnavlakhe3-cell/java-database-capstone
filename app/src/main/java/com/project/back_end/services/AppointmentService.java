@@ -13,7 +13,6 @@ public class AppointmentService {
         appointmentList.add(appointment);
         return appointment;
     }
-
     public List<Appointment> getAllAppointments() {
         return appointmentList;
     }
